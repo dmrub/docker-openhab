@@ -7,16 +7,13 @@ MAINTAINER Tom Deckers <tom@ducbase.com>
 ENV OPENHAB_VERSION 1.8.3
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN  apt-get -y update \
-  && apt-get -y install software-properties-common \
-  && echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections \
-  && apt-add-repository ppa:webupd8team/java \
-  && apt-get -y update \
+RUN apt-get -y update \
   && apt-get -y install unzip supervisor wget \
-  && apt-get -y install oracle-java8-installer oracle-java8-set-default \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  && rm -rf /var/cache/oracle-jdk8-installer
+  && apt-get autoremove -y \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV OPENHAB_VERSION 1.8.3
 
 #
 # Download openHAB based on Environment OPENHAB_VERSION
