@@ -1,7 +1,7 @@
 # Openhab 1.8.3
 # * configuration is injected
 #
-FROM ubuntu:16.04
+FROM openjdk:8-jre
 MAINTAINER Tom Deckers <tom@ducbase.com>
 
 ENV OPENHAB_VERSION 1.8.3
