@@ -11,7 +11,7 @@ If you do not have a openHAB configuration yet, you can start this Docker withou
 
 Pull
 =======
-```docker pull tdeckers/openhab```
+```docker pull dmrub/openhab```
 
 Building
 ========
@@ -60,21 +60,21 @@ Running
 Example: run command (with your openHAB config)
 ```
 <<<<<<< HEAD
-docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ tdeckers/openhab
+docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ dmrub/openhab
 =======
-docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab tdeckers/openhab
+docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab dmrub/openhab
 >>>>>>> 325750d... Various
 ```
 
 
 Example: Map configuration and logging directory as well as allow access to Supervisor:
 ```
-docker run -d -p 8080:8080 -p 9001:9001 -v /tmp/configurations/:/etc/openhab -v /tmp/logs:/opt/openhab/logs tdeckers/openhab
+docker run -d -p 8080:8080 -p 9001:9001 -v /tmp/configurations/:/etc/openhab -v /tmp/logs:/opt/openhab/logs dmrub/openhab
 ```
 
 Example: run command (with Demo)
 ```
-docker run -d -p 8080:8080 tdeckers/openhab
+docker run -d -p 8080:8080 dmrub/openhab
 ```
 
 Start the Demo with:
@@ -92,7 +92,7 @@ HABmin
 
 HABmin is not included in this deployment.  However you can easily add is as follows:
 ```
-docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin tdeckers/openhab
+docker run -d -p 8080:8080 -v /<your_location>/webapps/habmin:/opt/openhab/webapps/habmin -v /<your_location>/openhab/config:/etc/openhab -v /<your_location>/openhab/addons-available/habmin:/opt/openhab/addons-available/habmin dmrub/openhab
 ```
 
 Then add these lines to addon.cfg
