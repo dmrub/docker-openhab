@@ -7,7 +7,7 @@ MAINTAINER Tom Deckers <tom@ducbase.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update && \
-    apt-get -y install unzip supervisor wget && \
+    apt-get -y install unzip supervisor wget curl && \
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
