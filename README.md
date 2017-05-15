@@ -59,11 +59,7 @@ Running
 
 Example: run command (with your openHAB config)
 ```
-<<<<<<< HEAD
 docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab/ dmrub/openhab
-=======
-docker run -d -p 8080:8080 -v /tmp/configuration:/etc/openhab dmrub/openhab
->>>>>>> 325750d... Various
 ```
 
 
