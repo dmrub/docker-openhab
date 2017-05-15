@@ -4,23 +4,26 @@
 FROM openjdk:8-jre
 MAINTAINER Tom Deckers <tom@ducbase.com>
 
-ENV OPENHAB_VERSION 1.8.3
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get -y update \
-  && apt-get -y install unzip supervisor wget \
-  && apt-get clean \
-  && apt-get autoremove -y \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get -y update && \
+    apt-get -y install unzip supervisor wget && \
+    apt-get clean && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG OPENHAB_VERSION=1.8.3
+ARG OPENHAB_ADDONS_URL=https://bintray.com/openhab/mvn/download_file?file_path=org%2Fopenhab%2Fdistro%2Fopenhab%2F1.9.0%2Fopenhab-1.9.0-addons.zip
+
+ENV OPENHAB_OPENHAB_CFG=
+ENV OPENHAB_ADDONS_CFG=
 
 #
 # Download openHAB based on Environment OPENHAB_VERSION
 #
 COPY files/scripts/download_openhab.sh /root/
-RUN /root/download_openhab.sh \
-  && rm /root/download_openhab.sh
+RUN /root/download_openhab.sh && \
+    rm /root/download_openhab.sh
 
 COPY files/supervisord.conf /etc/supervisor/supervisord.conf
 COPY files/openhab.conf /etc/supervisor/conf.d/openhab.conf
